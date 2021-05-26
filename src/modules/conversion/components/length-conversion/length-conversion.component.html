@@ -1,0 +1,41 @@
+<hr>
+<h5 style="text-align: center;">Unit Convertor</h5>
+<hr>
+<form [formGroup]="form">
+    <div class="container">
+
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Select an option</mat-label>
+            <mat-select formControlName="property" (selectionChange)="propertyChanged()">
+                <mat-option *ngFor="let p of properties;" [value]="p">{{p}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <div class="row-flex">
+            <div class="column-flex">
+                <mat-select formControlName="from" (selectionChange)="calculate('to', 'from')">
+                    <mat-option *ngFor="let unit of units[propertyIndex]" [value]="unit">{{unit}}</mat-option>
+                </mat-select>
+                <mat-form-field>
+                    <input matInput formControlName="fromValue" (change)="calculate('from', 'to')"
+                    (keyup)="calculate('from', 'to')" />
+                </mat-form-field>              
+
+            </div>
+            <div>=</div>
+            <div class="column-flex">
+                <mat-select formControlName="to" (selectionChange)="calculate('from', 'to')">
+                    <mat-option *ngFor="let unit of units[propertyIndex];" [value]="unit">{{unit}}</mat-option>
+                </mat-select>
+                <mat-form-field>
+                    <input matInput formControlName="toValue" (change)="calculate('to', 'from')"
+                    (keyup)="calculate('to', 'from')" />
+                </mat-form-field>
+                
+
+            </div>
+        </div>
+    </div>
+</form>

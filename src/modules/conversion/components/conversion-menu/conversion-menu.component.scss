@@ -1,0 +1,45 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #ad2121;
+    .main {
+        margin-top: 5rem;
+        width: 60%;
+        border: 3px solid white;
+        padding: 10px;
+        background-color: white;
+        border-radius:1rem;
+    }
+    .header{
+        //border-radius: 50%;
+        background-color: white;
+        color:#ad2121;
+        padding: 1rem;
+        overflow-x: hidden;
+    }
+    h4{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 40px;
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        color: #ad2121;
+        font-weight: 700;
+        margin-bottom: 0.1rem;
+         //text-decoration: underline solid rgb(68, 68, 68);
+        font-style: italic;
+        font-variant: small-caps;
+        text-transform: uppercase;
+    }
+
+    button:hover{
+        color:black;
+        background-color: white;
+    }
+    button{
+        color:white;
+        background-color: #ad2121;   
+    }
+}

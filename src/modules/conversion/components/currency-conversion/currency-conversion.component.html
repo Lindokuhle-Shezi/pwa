@@ -1,0 +1,38 @@
+<div class="column-flex">
+    <div class="row-flex">
+        <div>
+            <mat-form-field>
+                <mat-label>amounth</mat-label>
+                <input matInput (keypress)="numberOnly($event)" (keypress)="isFromCommaSepereted($event)" [formControl]="fromAmounth" (keyup)="calculate('from')">
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="convertingFrom" (selectionChange)="calculate('from')">
+                    <mat-option>None</mat-option>
+                    <mat-option  [value]="cleanString(option[0])" *ngFor="let option of codes" [seleted]="true">{{cleanString(option[1])}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row-flex">
+        <div>
+            <mat-form-field>
+                <mat-label>amounth</mat-label>
+                <input matInput (keypress)="numberOnly($event)" (keypress)="istoCommaSepereted($event)"[formControl]="toAmounth" (keyup)="calculate('to')">
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="convertingTo" (selectionChange)="calculate('to')" >
+                    <mat-option>None</mat-option>
+                    <mat-option  [value]="cleanString(option[0])" *ngFor="let option of codes"  [seleted]="true">{{cleanString(option[1])}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

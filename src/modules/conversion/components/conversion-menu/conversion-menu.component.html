@@ -1,0 +1,20 @@
+<div class="header">
+    <h4>Convert</h4>
+</div>
+<div class="main">
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selectedCon">
+            <mat-option>None</mat-option>
+            <mat-option  [value]="option" *ngFor="let option of conversionEnumOptions | enumToArray" [seleted]="true">{{option}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <container-element [ngSwitch]="selectedCon">
+        <app-currency-conversion *ngSwitchCase="selectedConversion.Currency"></app-currency-conversion>
+        <app-length-conversion *ngSwitchCase="selectedConversion.Length"></app-length-conversion>
+    </container-element>
+    <!-- <button mat-raised-button class="full-width" (click)="toConvertCurrency()">Currency</button>
+    <mat-divider style="min-height: 1rem;"></mat-divider>
+    <button mat-raised-button class="full-width" (click)="toConvertLength()">Length</button> -->
+</div>
